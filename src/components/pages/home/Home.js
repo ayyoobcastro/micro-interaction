@@ -4,6 +4,8 @@ import './home.scss';
 import Slider from "react-slick";
 
 import LocomotiveScroll from 'locomotive-scroll';
+import { Parallax } from 'react-scroll-parallax';
+
 
 
 
@@ -42,7 +44,9 @@ function Home() {
             <div className="home-banner">
                 <div className="banner-slider">
                     <div>
-                        <img src="http://dtaledecor.com/static/jpeg/Home-banner/pic2.jpg" alt="" />
+                        <Parallax className="custom-class" y={[-20, 20]} tagOuter="figure">
+                            <img src="http://dtaledecor.com/static/jpeg/Home-banner/pic2.jpg" alt="" />
+                        </Parallax>
                     </div>
                 </div>
                 <div className="banner-text">

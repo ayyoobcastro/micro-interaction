@@ -7,6 +7,8 @@ import Header from './components/header';
 import Home from './components/pages/home/Home';
 
 import LocomotiveScroll from 'locomotive-scroll';
+import { ParallaxProvider } from 'react-scroll-parallax';
+
 
 function App() {
 
@@ -21,10 +23,12 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Header />
-      <Home />
-    </div>
+    <ParallaxProvider>
+      <div className="App">
+        <Header />
+        <Home />
+      </div>
+    </ParallaxProvider>
   );
 }
 
