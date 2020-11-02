@@ -1,7 +1,54 @@
-.home-banner .banner-slider img {
-  transform: scale(1.1);
-}
+// .home-banner .banner-slider img {
+//   transform: scale(1.1);
+// }
 
 .banner-slider {
+  position: absolute;
+  min-height: 90vh;
+}
+.home-banner {
+  min-height: 90vh;
+}
+
+.banner-slider,
+.home-introduction .image {
   overflow: hidden;
+}
+
+.home-banner .banner-slider img {
+  min-height: 92vh;
+}
+
+.curated-products article .product-slider .product_slider_item .product__block {
+  overflow: hidden;
+}
+.store_image {
+  overflow: hidden;
+}
+.custom-class {
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.home-showroom aside .image .store_image {
+  z-index: 2;
+  img {
+    transform: scale(1.3);
+  }
+}
+
+.banner-parallax {
+  margin: 0;
+}
+
+.cta-banner {
+  background-image: url("http://dtaledecor.com/static/jpeg/cta-banner.jpg");
+}
+
+.services .services-blocks .block-1 aside .img {
+  overflow: hidden;
+  img {
+    transform: scale(1.3);
+  }
 }

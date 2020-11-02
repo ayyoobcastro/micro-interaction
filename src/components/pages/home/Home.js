@@ -1,34 +1,55 @@
 import React, { useEffect } from 'react';
 import './home.scss';
 
-import Slider from "react-slick";
+import HomeBanner from './home-banner.jpg';
+import hStore from './h-store.jpg'
 
 import LocomotiveScroll from 'locomotive-scroll';
 import { Parallax } from 'react-scroll-parallax';
 
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 
 
 
 function Home() {
-    const curatedProducts = {
+
+    const homeImageSlider = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        autoplay: true,
+        cssEase: 'linear',
+        responsive: [
+            {
+                breakpoint: 545,
+                settings: "unslick"
+            }
+        ]
+    };
+
+    const productSlider = {
         dots: false,
         arrows: true,
         infinite: true,
         speed: 500,
-
+        // fade: true,
         cssEase: 'linear',
+        // autoplay: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
 
-        slidesToShow: 10,
-        slidesToScroll: 3,
-
-        // responsive: [
-        //     {
-        //         breakpoint: 545,
-        //         curatedProducts: "unslick"
-        //     }
-        // ]
+        responsive: [
+            {
+                breakpoint: 545,
+                settings: "unslick"
+            }
+        ]
     };
 
     useEffect(() => {
@@ -37,6 +58,8 @@ function Home() {
         });
         console.log(myContent);
 
+
+
     })
 
     return (
@@ -44,8 +67,8 @@ function Home() {
             <div className="home-banner">
                 <div className="banner-slider">
                     <div>
-                        <Parallax className="custom-class" y={[-20, 20]} tagOuter="figure">
-                            <img src="http://dtaledecor.com/static/jpeg/Home-banner/pic2.jpg" alt="" />
+                        <Parallax className="banner-parallax" y={[-20, 20]} tagOuter="figure">
+                            <img src={HomeBanner} alt="" />
                         </Parallax>
                     </div>
                 </div>
@@ -58,6 +81,8 @@ function Home() {
                     </div>
                 </div>
             </div>
+
+
 
             <section id="home-intro" className="home-introduction">
                 <div className="container">
@@ -90,11 +115,14 @@ function Home() {
                             <div className="col__half">
                                 <aside>
                                     <div className="image image__shadow--right">
-                                        <img src="http://dtaledecor.com/static/jpeg/h-store.jpg" alt="" />
+                                        <Parallax className="custom-class" y={[-20, 20]} tagOuter="figure">
+                                            <img src={hStore} alt="" />
+                                        </Parallax>
                                         <div className="play-video">
                                             <img src="http://dtaledecor.com/static/svg/play2.svg" alt="" />
                                             <span className="play-video__text">WATCH VIDEO</span>
                                         </div>
+
                                     </div>
                                 </aside>
                             </div>
@@ -109,76 +137,78 @@ function Home() {
                         <aside>
                             <h4 className="mini__heading">CURATED products</h4>
                         </aside>
-                        <Slider {...curatedProducts} className="product-slider">
-
-                            <div className="product_slider_item">
-                                <a href="./collection-chair-detail-Kwan.html">
-                                    <div className="product__block">
-                                        <figure>
-                                            <img src="http://dtaledecor.com/static/jpeg/products/Chairs/Armchairs/Kwan/pic1.jpg" alt="" />
-                                            <img src="http://dtaledecor.com/static/jpeg/products/Chairs/Armchairs/Kwan/pic4-hover.jpg" alt="" />
-                                        </figure>
-                                        <span>Kwan / Armchair</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="product_slider_item">
-                                <a href="./collection-chair-detail-Adrian.html">
-                                    <div className="product__block">
-                                        <figure>
-                                            <img src="http://dtaledecor.com/static/jpeg/products/Chairs/Dining/Adrian/pic1.jpg" alt="" />
-                                            <img src="http://dtaledecor.com/static/jpeg/products/Chairs/Dining/Adrian/pic2-hover.jpg" alt="" />
-                                        </figure>
-                                        <span>Adrian / Dining</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="product_slider_item">
-                                <a href="./collection-consoles-detail-airi.html">
-                                    <div className="product__block">
-                                        <figure>
-                                            <img src="http://dtaledecor.com/static/jpeg/products/Consoles/Airi/Web/pic1.jpg" alt="" />
-                                            <img src="http://dtaledecor.com/static/jpeg/products/Consoles/Airi/Web/pic2-hover.jpg" alt="" />
-                                        </figure>
-                                        <span>Airi / Consoles</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="product_slider_item">
-                                <a href="./collection-consoles-detail-calder.html">
-                                    <div className="product__block">
-                                        <figure>
-                                            <img src="http://dtaledecor.com/static/jpeg/products/Consoles/Calder/Web/pic1.jpg" alt="" />
-                                            <img src="http://dtaledecor.com/static/jpeg/products/Consoles/Calder/Web/pic3-hover.jpg" alt="" />
-                                        </figure>
-                                        <span>Calder / Consoles</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="product_slider_item">
-                                <a href="./collection-consoles-detail-mozemo.html">
-                                    <div className="product__block">
-                                        <figure>
-                                            <img src="http://dtaledecor.com/static/jpeg/products/Consoles/Mozemo/Web/pic1.jpg" alt="" />
-                                            <img src="http://dtaledecor.com/static/jpeg/products/Consoles/Mozemo/Web/pic2-hover.jpg" alt="" />
-                                        </figure>
-                                        <span>Mozemo / Consoles</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="product_slider_item">
-                                <a href="./collection-table-detail-loua.html">
-                                    <div className="product__block">
-                                        <figure>
-                                            <img src="http://dtaledecor.com/static/jpeg/products/Tables/Loua/web/pic1.jpg" alt="" />
-                                            <img src="http://dtaledecor.com/static/jpeg/products/Tables/Loua/web/pic2-hover.jpg" alt="" />
-                                        </figure>
-                                        <span>Loua / Tables </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                        </Slider>
+                        <div className="product-slider">
+                            <Slider {...productSlider} >
+                                <div className="product_slider_item">
+                                    <a href="./collection-chair-detail-Kwan.html">
+                                        <div className="product__block">
+                                            <figure>
+                                                <Parallax className="custom-class" y={[-5, 5]} tagOuter="figure">
+                                                    <img src="http://dtaledecor.com/static/jpeg/products/Chairs/Armchairs/Kwan/pic1.jpg" alt="" />
+                                                    <img src="http://dtaledecor.com/static/jpeg/products/Chairs/Armchairs/Kwan/pic4-hover.jpg" alt="" />
+                                                </Parallax>
+                                            </figure>
+                                            <span>Kwan / Armchair</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div className="product_slider_item">
+                                    <a href="./collection-chair-detail-Adrian.html">
+                                        <div className="product__block">
+                                            <figure>
+                                                <img src="http://dtaledecor.com/static/jpeg/products/Chairs/Dining/Adrian/pic1.jpg" alt="" />
+                                                <img src="http://dtaledecor.com/static/jpeg/products/Chairs/Dining/Adrian/pic2-hover.jpg" alt="" />
+                                            </figure>
+                                            <span>Adrian / Dining</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div className="product_slider_item">
+                                    <a href="./collection-consoles-detail-airi.html">
+                                        <div className="product__block">
+                                            <figure>
+                                                <img src="http://dtaledecor.com/static/jpeg/products/Consoles/Airi/Web/pic1.jpg" alt="" />
+                                                <img src="http://dtaledecor.com/static/jpeg/products/Consoles/Airi/Web/pic2-hover.jpg" alt="" />
+                                            </figure>
+                                            <span>Airi / Consoles</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div className="product_slider_item">
+                                    <a href="./collection-consoles-detail-calder.html">
+                                        <div className="product__block">
+                                            <figure>
+                                                <img src="http://dtaledecor.com/static/jpeg/products/Consoles/Calder/Web/pic1.jpg" alt="" />
+                                                <img src="http://dtaledecor.com/static/jpeg/products/Consoles/Calder/Web/pic3-hover.jpg" alt="" />
+                                            </figure>
+                                            <span>Calder / Consoles</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div className="product_slider_item">
+                                    <a href="./collection-consoles-detail-mozemo.html">
+                                        <div className="product__block">
+                                            <figure>
+                                                <img src="http://dtaledecor.com/static/jpeg/products/Consoles/Mozemo/Web/pic1.jpg" alt="" />
+                                                <img src="http://dtaledecor.com/static/jpeg/products/Consoles/Mozemo/Web/pic2-hover.jpg" alt="" />
+                                            </figure>
+                                            <span>Mozemo / Consoles</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div className="product_slider_item">
+                                    <a href="./collection-table-detail-loua.html">
+                                        <div className="product__block">
+                                            <figure>
+                                                <img src="http://dtaledecor.com/static/jpeg/products/Tables/Loua/web/pic1.jpg" alt="" />
+                                                <img src="http://dtaledecor.com/static/jpeg/products/Tables/Loua/web/pic2-hover.jpg" alt="" />
+                                            </figure>
+                                            <span>Loua / Tables </span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </Slider>
+                        </div>
                     </article>
                 </div>
             </section>
@@ -188,21 +218,23 @@ function Home() {
                 <div className="container">
                     <article>
                         <div className="home-image-slider">
-                            <div>
-                                <img src="http://dtaledecor.com/static/jpeg/home-gallery/g1.jpg" alt="" />
-                            </div>
-                            <div>
-                                <img src="http://dtaledecor.com/static/jpeg/home-gallery/g2.jpg" alt="" />
-                            </div>
-                            <div>
-                                <img src="http://dtaledecor.com/static/jpeg/home-gallery/g3.jpg" alt="" />
-                            </div>
-                            <div>
-                                <img src="http://dtaledecor.com/static/jpeg/home-gallery/g4.jpg" alt="" />
-                            </div>
-                            <div>
-                                <img src="http://dtaledecor.com/static/jpeg/home-gallery/g5.jpg" alt="" />
-                            </div>
+                            <Slider {...homeImageSlider}>
+                                <div>
+                                    <img src="http://dtaledecor.com/static/jpeg/home-gallery/g1.jpg" alt="" />
+                                </div>
+                                <div>
+                                    <img src="http://dtaledecor.com/static/jpeg/home-gallery/g2.jpg" alt="" />
+                                </div>
+                                <div>
+                                    <img src="http://dtaledecor.com/static/jpeg/home-gallery/g3.jpg" alt="" />
+                                </div>
+                                <div>
+                                    <img src="http://dtaledecor.com/static/jpeg/home-gallery/g4.jpg" alt="" />
+                                </div>
+                                <div>
+                                    <img src="http://dtaledecor.com/static/jpeg/home-gallery/g5.jpg" alt="" />
+                                </div>
+                            </Slider>
                         </div>
                     </article>
                 </div>
@@ -221,7 +253,10 @@ function Home() {
                             <aside>
                                 <div className="image image__shadow--left--2">
                                     <a href="./showrooms.html" className="store_image">
-                                        <img src="http://dtaledecor.com/static/jpeg/h-Kochi.jpg" alt="" />
+                                        <Parallax className="custom-class" y={[20, -20]} tagOuter="figure">
+                                            <img src="http://dtaledecor.com/static/jpeg/h-Kochi.jpg" alt="" />
+                                        </Parallax>
+
                                         <div className="store_content">
                                             <div className="store_content-item">
                                                 <h3>Kochi</h3>
@@ -234,7 +269,10 @@ function Home() {
                             <aside>
                                 <div className="image image__shadow--right--2">
                                     <a href="./showrooms.html" className="store_image">
-                                        <img src="http://dtaledecor.com/static/jpeg/h-Thrissur.jpg" alt="" />
+                                        <Parallax className="custom-class" y={[-20, 20]} tagOuter="figure">
+                                            <img src="http://dtaledecor.com/static/jpeg/h-Thrissur.jpg" alt="" />
+                                        </Parallax>
+
                                         <div className="store_content">
                                             <div className="store_content-item">
                                                 <h3>Thrissur</h3>
@@ -263,7 +301,10 @@ function Home() {
                         <div className="block-1">
                             <aside>
                                 <div className="img">
-                                    <img src="http://dtaledecor.com/static/jpeg/h-serA@2x.jpg" alt="" />
+                                    <Parallax className="custom-class" y={[-20, 20]} tagOuter="figure">
+                                        <img src="http://dtaledecor.com/static/jpeg/h-serA@2x.jpg" alt="" />
+                                    </Parallax>
+
                                 </div>
                             </aside>
                             <aside></aside>
@@ -296,7 +337,9 @@ function Home() {
                         <div className="block-1">
                             <aside>
                                 <div className="img">
-                                    <img src="http://dtaledecor.com/static/jpeg/h-directC@2x.jpg" alt="" />
+                                    <Parallax className="custom-class" y={[-20, 20]} tagOuter="figure">
+                                        <img src="http://dtaledecor.com/static/jpeg/h-directC@2x.jpg" alt="" />
+                                    </Parallax>
                                 </div>
                             </aside>
                             <aside></aside>
